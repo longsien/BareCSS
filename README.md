@@ -9,12 +9,12 @@ BareCSS uses a simple two step process to get started:
 
 #### Easy mode:
 
-- [Download the latest release](https://github.com/longsien/BareCSS/archive/BareCSS-1.0.zip)
+- [Download the latest release](https://github.com/longsien/BareCSS/releases/download/v1.0.0/BareCSS-v1.0.0.zip)
 - Link `bare.min.css` to your HTML file
 
 #### Custom mode:
 
-- [Download the latest release](https://github.com/longsien/BareCSS/archive/BareCSS-1.0.zip)
+- [Download the latest release](https://github.com/longsien/BareCSS/releases/download/v1.0.0/BareCSS-v1.0.0.zip)
 - Edit the `bare.less` file to add/remove components.
 - Compile and link the resulting CSS in your HTML file
 
