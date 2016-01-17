@@ -1,0 +1,55 @@
+@import (reference) "_variables";
+
+/*	grid
+----------------------------------------------------------------------*/
+
+
+// .grid acts as a container for .col
+// eg: <div class="grid"><div class="col twelve"></div></div>
+
+.grid {
+	font-size: 0;
+	width: auto;
+	margin: -1rem;
+	
+	.grid:not(:first-child) { margin: 1rem -1rem 0 }
+}
+
+// columns
+	
+@columns: 12;
+	
+.width(@x) {
+	width: 100% / @columns * @x;
+}	
+
+.col {
+	display: inline-block;
+	font-size: @fs-m;
+	padding: 1rem;
+	vertical-align: top;
+	
+	// eg: <div class="col six"></div>
+	
+	&.one		{ .width(1) }
+	&.two		{ .width(2) }
+	&.three		{ .width(3) }
+	&.four		{ .width(4) }
+	&.five		{ .width(5) }
+	&.six		{ .width(6) }
+	&.seven		{ .width(7) }
+	&.eight		{ .width(8) }
+	&.nine		{ .width(9) }
+	&.ten		{ .width(10) }
+	&.eleven	{ .width(11) }
+	&.twelve	{ .width(12) }
+	
+	// columns go to 100% on @mobile width unless it has the .fx class
+	// eg: <div class="col six fx"></div>
+	
+	@media (max-width: @mobile) {
+		&.one, &.two, &.three, &.four, &.five, &.six, &.seven, &.eight, &.nine, &.ten, &.eleven, &.twelve { 
+			&:not(.fx) { width: 100% }
+		}
+	}
+}

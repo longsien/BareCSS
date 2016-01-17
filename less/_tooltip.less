@@ -1,0 +1,71 @@
+@import (reference) "_variables";
+
+/*	tooltip
+----------------------------------------------------------------------*/
+
+	// eg: <span data-tt="This is a tooltip"></span>
+
+[data-tt], [data-dtt]:disabled,
+a[href^=http]@{n}, a[href^=http]@{x} {
+	overflow: visible;
+	
+	&:before, &:after {
+		position: absolute;
+		left: 50%;
+		top: 0;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		z-index: 2;
+	}
+	
+	&:before {
+		content: attr(data-tt);
+		background: @grey-ultradark;
+		border-radius: 3px;
+		color: #fff;
+		font-family: @sans-serif;
+		font-size: @fs-s;
+		line-height: 2.5;
+		font-weight: 300;
+		letter-spacing: 0;
+		white-space: nowrap;
+		padding: 0 1rem;
+		transform: translate(-50%,-95%);
+		text-transform: none;
+	}
+	
+	&:after {
+		content: "";
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 5px 5px 0 5px;
+		border-color: @grey-ultradark transparent transparent transparent;
+		transform: translate(-50%,0);
+	}
+	
+	&:hover:before {
+		opacity: 0.8;
+		visibility: visible;
+		transform: translate(-50%,~"calc(-100% - 5px)");
+	}
+	
+	&:hover:after {
+		opacity: 0.8;
+		visibility: visible;
+		transform: translate(-50%,-100%)
+	}
+	
+	// for disabled buttons
+	// eg: <button disabled data-dtt="This button is disabled"></button>
+	
+	&:disabled:before, &.disabled:before { content: attr(data-dtt) }
+}
+
+	// external anchor link tooltip
+	// eg: <a href="http://www.barecss.com"></a>
+
+a[href^=http]@{n}, a[href^=http]@{x} {
+	&:before { content: attr(href) }
+}
