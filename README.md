@@ -22,6 +22,7 @@ BareCSS uses a simple two step process to get started:
 
 ```
 BareCSS/
+├── template.html
 ├── css/
 │	└── bare.min.css
 ├── icons/
@@ -32,19 +33,21 @@ BareCSS/
 └── less/
 	├── _anchor-link.less
 	├── _blockquote.less
+	├── _button.less
 	├── _card.less
 	├── _code.less
-	├── _form.less
+	├── _footer.less
 	├── _grid.less
-	├── _layouts.less
-	├── _lists.less
+	├── _input.less
+	├── _layout.less
+	├── _list.less
 	├── _navigation.less
 	├── _reset.less
 	├── _table.less
 	├── _tooltip.less
-	├── _transitions.less
+	├── _transition.less
 	├── _typography.less
-	├── _utility-classes.less
+	├── _utility-attributes.less
 	├── _variables.less
 	└── bare.less
 ```
