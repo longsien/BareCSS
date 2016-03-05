@@ -1,5 +1,5 @@
 # [BareCSS](http://barecss.com)
-A classless CSS boilerplate
+A classless CSS framework
 
 Go to [barecss.com](http://barecss.com) for examples and documentation.
 
