@@ -22,6 +22,10 @@ body {
 	font-size: @fs-m;
 	line-height: 1.8;
 	font-weight: 300;
+	
+	@media (max-width: @mobile) {
+		overflow-x: hidden;
+	}
 }
 
 a {

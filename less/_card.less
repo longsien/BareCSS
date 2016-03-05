@@ -6,18 +6,24 @@
 
 	// eg: <div class="card"></div>
 
-.card {
+card {
 	background: #fff;
+	display: block;
 	padding: 2rem;
 	box-shadow: @box-shadow;
 	border-radius: 2px;
 	margin-bottom: 2rem;
+	
+	hr@{n}, hr@{x} {
+		margin: 1rem 0;
+	}
 	
 	&:last-child { margin-bottom: 0 }
 	
 	// sets the image to full width
 	> img@{n}, > img@{x} {
 		width: ~"calc(100% + 4rem)";
+		max-width: none;
 		margin: 0 0 2rem -2rem;
 		display: block;
 		

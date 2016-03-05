@@ -2,14 +2,13 @@
 
 /*	tooltip
 ----------------------------------------------------------------------*/
+	
+	// sets the styling for tooltips
 
-	// eg: <span data-tt="This is a tooltip"></span>
-
-[data-tt], [data-dtt]:disabled,
-a[href^=http]@{n}, a[href^=http]@{x} {
+[tt], [dtt]:disabled, [att] {
 	overflow: visible;
 	
-	&:before, &:after {
+	&:after {
 		position: absolute;
 		left: 50%;
 		top: 0;
@@ -17,10 +16,6 @@ a[href^=http]@{n}, a[href^=http]@{x} {
 		visibility: hidden;
 		pointer-events: none;
 		z-index: 2;
-	}
-	
-	&:before {
-		content: attr(data-tt);
 		background: @grey-ultradark;
 		border-radius: 3px;
 		color: #fff;
@@ -35,37 +30,26 @@ a[href^=http]@{n}, a[href^=http]@{x} {
 		text-transform: none;
 	}
 	
-	&:after {
-		content: "";
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-width: 5px 5px 0 5px;
-		border-color: @grey-ultradark transparent transparent transparent;
-		transform: translate(-50%,0);
-	}
-	
-	&:hover:before {
-		opacity: 0.8;
+	&:hover:after {
+		opacity: 0.9;
 		visibility: visible;
 		transform: translate(-50%,~"calc(-100% - 5px)");
 	}
+}
 	
-	&:hover:after {
-		opacity: 0.8;
-		visibility: visible;
-		transform: translate(-50%,-100%)
-	}
-	
-	// for disabled buttons
+	// sets the content for tooltip
+	// eg: <span data-tt="This is a tooltip"></span>
+
+[tt]:after { content: attr(tt) }
+
+	// sets the content for disabled tooltips
+	// can be used in conjunction with data-tt
 	// eg: <button disabled data-dtt="This button is disabled"></button>
 	
-	&:disabled:before, &.disabled:before { content: attr(data-dtt) }
-}
+[dtt]:disabled:after { content: attr(dtt) }
 
-	// external anchor link tooltip
-	// eg: <a href="http://www.barecss.com"></a>
+	// sets the contents for an anchor link tooltip
+	// will set the content to the href
+	// eg: <a att href="https://github.com/longsien/BareCSS">BareCSS at GitHub</a>
 
-a[href^=http]@{n}, a[href^=http]@{x} {
-	&:before { content: attr(href) }
-}
+[att]:after { content: attr(href) }

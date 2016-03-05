@@ -10,11 +10,12 @@ nav@{n}, nav@{x} {
 	padding: 0 2rem;
 	border-bottom: 1px solid @primary;
 	z-index: 10;
+	min-height: 4.4rem;
 	
 	// class to fix the nav bar to the top of the viewport
-	// eg: <nav class="fx xx"></nav>
+	// eg: <nav fx></nav>
 	
-	&.fx {
+	&[fx] {
 		background: rgba(255,255,255,0.95);
 		position: fixed;
 		top: 0;
@@ -30,13 +31,7 @@ nav@{n}, nav@{x} {
 		margin: auto;
 		display: block;
 		
-		> input {
-			display: none;
-			
-			&:checked {
-				
-			}
-		}
+		> input { display: none }
 	}
 	
 	// where the main navigation items live
@@ -65,7 +60,7 @@ nav@{n}, nav@{x} {
 		a {
 			text-decoration: none;
 			text-transform: none;
-			padding: 1rem 2rem 0.6rem;
+			padding: 0.8rem 2rem 0.4rem;
 			border-bottom: 4px solid transparent;
 			display: block;
 			cursor: pointer;
@@ -114,15 +109,20 @@ nav@{n}, nav@{x} {
 		
 		menuitem {
 			display: block;
+			border-left: 4px solid transparent;
+			
+			&:hover {
+				border-color: @primary;
+				background-color: @grey-ultralight;
+				
+				a { transform: translate3d(0.5rem,0,0) }
+			}
 			
 			a {
 				text-transform: none;
 				padding: 0.5rem 2rem 0.5rem 1.6rem;
 				border: none;
-				border-left: 4px solid transparent;
 				font-size: @fs-s;
-				
-				&:hover { background-color: @grey-ultralight }
 			}
 		}
 	}
@@ -163,9 +163,10 @@ nav@{n}, nav@{x} {
 			cursor: pointer;
 			z-index: 2;
 			font-size: @fs-l;
+			text-decoration: none;
 			
 			img {
-				height: 3rem;
+				height: 2rem;
 				vertical-align: middle;
 				top: -1px;
 				margin-right: 1rem;
@@ -230,7 +231,6 @@ nav@{n}, nav@{x} {
 				a {
 					padding: 1rem 6rem 1rem 2rem;
 					border: none;
-					border-left: 4px solid transparent;		
 				}
 			}
 						
@@ -260,8 +260,11 @@ nav@{n}, nav@{x} {
 			}
 			
 			menu {
+				menuitem {
+					border-color: @grey-light;
+				}
+				
 				a {
-					border-left: 4px solid @grey-light;
 					padding-left: 4rem;
 				}
 			}
